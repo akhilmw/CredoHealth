@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+button {
+  font: inherit;
+}
+
 .app-shell {
   max-width: 1120px;
   margin: 0 auto;
@@ -24,4 +28,156 @@ h1 {
 p {
   margin: 0;
   color: #5f6368;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  margin: 24px 0 16px;
+}
+
+.toolbar label {
+  display: grid;
+  gap: 6px;
+  color: #5f6368;
+  font-size: 13px;
+}
+
+.toolbar button,
+.toolbar select,
+.patient-list button {
+  border: 1px solid #d6d9de;
+  background: #ffffff;
+  color: #202124;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toolbar button {
+  padding: 10px 14px;
+}
+
+.toolbar select {
+  min-width: 90px;
+  padding: 9px 10px;
+}
+
+.toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.alert {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e0a7a7;
+  border-radius: 6px;
+  background: #fff3f3;
+  color: #8a1f1f;
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid #d6d9de;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  border: 1px solid #d6d9de;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.panel h2,
+.panel h3 {
+  margin: 0 0 14px;
+}
+
+.patient-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.patient-list button {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+}
+
+.patient-list button:hover,
+.patient-list button.selected {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.patient-list small,
+.observation small {
+  color: #5f6368;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.details div {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.details dt {
+  margin-bottom: 4px;
+  color: #5f6368;
+  font-size: 13px;
+}
+
+.details dd {
+  margin: 0;
+}
+
+.observation-list {
+  display: grid;
+  gap: 10px;
+}
+
+.observation {
+  display: grid;
+  gap: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+@media (max-width: 760px) {
+  .content-grid,
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
 }
