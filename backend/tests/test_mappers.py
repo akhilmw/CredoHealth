@@ -3,6 +3,7 @@ from datetime import date
 from app.mappers import map_observation_resource, map_patient_resource
 
 
+# Verifies that a normal HAPI Patient resource maps to the internal shape.
 def test_map_patient_resource_from_hapi_shape():
     resource = {
         "resourceType": "Patient",
@@ -31,6 +32,7 @@ def test_map_patient_resource_from_hapi_shape():
     assert mapped["source_updated_at"] is not None
 
 
+# Verifies that optional Patient fields can be absent without crashing.
 def test_map_patient_resource_handles_missing_optional_fields():
     resource = {
         "resourceType": "Patient",
@@ -49,6 +51,7 @@ def test_map_patient_resource_handles_missing_optional_fields():
     }
 
 
+# Verifies that valueQuantity Observations map value, unit, code, and timing.
 def test_map_observation_resource_from_hapi_value_quantity_shape():
     resource = {
         "resourceType": "Observation",
@@ -84,6 +87,7 @@ def test_map_observation_resource_from_hapi_value_quantity_shape():
     assert mapped["effective_at"] is not None
 
 
+# Verifies that optional Observation fields can be absent without crashing.
 def test_map_observation_resource_handles_missing_optional_fields():
     resource = {
         "resourceType": "Observation",
